@@ -26,18 +26,30 @@ def compTurn():
     pass
 
 def check():
-    pass
+
+    # Horizontal Check of 'X'
+    #----------------------------------------------------------------------------------
+    if board[0][0] and board[0][1] and board[0][2] == 'X':
+        print('X wins')
+    elif board[1][0] and board[1][1] and board[1][2] == 'X':
+        print('X wins')
+    elif board[2][0] and board[2][1] and board[2][2] == 'X':
+        print('X wins')
+    #----------------------------------------------------------------------------------
 
 # I am going to use this to loop over the game
 def game():
     printBoard()
+    print()
     playerTurn()
-    # check()
+    check()
     printBoard()
+    print()
     # compTurn()
     # check()
     # printBoard()
-    # game()
+    # print()
+    game()
 
 
 if __name__ == "__main__":
