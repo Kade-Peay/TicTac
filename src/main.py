@@ -1,4 +1,5 @@
 #!/bin/env python3
+import random
 
 def boardinit():
     board = [['-', '-', '-'],
@@ -23,7 +24,12 @@ def playerTurn():
         board[int(x)][int(y)] = 'X'
 
 def compTurn():
-    pass
+    x = random.randint(0,2)
+    y = random.randint(0, 2)
+
+    if board[int(x)][int(y)] != 'X':
+        board[int(x)][int(y)] = 'Y' 
+    else: compTurn()
 
 def check():
 
@@ -31,11 +37,53 @@ def check():
     #----------------------------------------------------------------------------------
     if board[0][0] and board[0][1] and board[0][2] == 'X':
         print('X wins')
+        gameGoing = False
     elif board[1][0] and board[1][1] and board[1][2] == 'X':
         print('X wins')
+        gameGoing = False
     elif board[2][0] and board[2][1] and board[2][2] == 'X':
         print('X wins')
+        gameGoing = False
     #----------------------------------------------------------------------------------
+
+    # Vertical check of 'X'
+    #----------------------------------------------------------------------------------
+    elif board[0][0] and board[1][0] and board[2][0] == 'X':
+        print('X wins')
+        gameGoing = False
+    elif board[0][1] and board[1][1] and board[2][1] == 'X':
+        print('X wins')
+        gameGoing = False
+    elif board[0][2] and board[1][2] and board[2][2] == 'X':
+        print('X wins')
+        gameGoing = False
+    #----------------------------------------------------------------------------------    
+
+    # Horizontal Check of 'Y'
+    #----------------------------------------------------------------------------------
+    elif board[0][0] and board[0][1] and board[0][2] == 'Y':
+        print('X wins')
+        gameGoing = False
+    elif board[1][0] and board[1][1] and board[1][2] == 'Y':
+        print('X wins')
+        gameGoing = False
+    elif board[2][0] and board[2][1] and board[2][2] == 'Y':
+        print('X wins')
+        gameGoing = False
+    #----------------------------------------------------------------------------------
+
+    # Vertical check of 'Y'
+    #----------------------------------------------------------------------------------
+    elif board[0][0] and board[1][0] and board[2][0] == 'Y':
+        print('X wins')
+        gameGoing = False
+    elif board[0][1] and board[1][1] and board[2][1] == 'Y':
+        print('X wins')
+        gameGoing = False
+    elif board[0][2] and board[1][2] and board[2][2] == 'Y':
+        print('X wins')
+        gameGoing = False
+    #----------------------------------------------------------------------------------    
 
 # I am going to use this to loop over the game
 def game():
@@ -43,15 +91,18 @@ def game():
     print()
     playerTurn()
     check()
+    if not gameGoing: exit()
     printBoard()
     print()
-    # compTurn()
-    # check()
-    # printBoard()
-    # print()
-    game()
+    compTurn()
+    check()
+    if not gameGoing: exit()
+    printBoard()
+    print()
+    if not gameGoing: exit()
 
 
 if __name__ == "__main__":
     board = boardinit()
+    gameGoing = True
     game()
