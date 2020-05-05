@@ -7,8 +7,8 @@ def boardinit():
     ['-', '-', '-']]
     return board
 
-def printBoard():
-    for row in board:
+def printBoard(arr):
+    for row in arr:
         print(row)
 
 # Make this a choice between 1 and 9
@@ -66,15 +66,15 @@ def check():
     #----------------------------------------------------------------------------------
     if board[0][0] == 'X' and board[0][1] == 'X' and board[0][2] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[1][0] == 'X' and board[1][1] == 'X' and board[1][2] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[2][0] == 'X' and board[2][1] == 'X' and board[2][2] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     #----------------------------------------------------------------------------------
 
@@ -82,15 +82,15 @@ def check():
     #----------------------------------------------------------------------------------
     elif board[0][0] == 'X' and board[1][0] == 'X' and board[2][0] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[0][1] == 'X' and board[1][1] == 'X' and board[2][1] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[0][2] == 'X' and board[1][2] == 'X' and board[2][2] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     #----------------------------------------------------------------------------------    
 
@@ -98,11 +98,11 @@ def check():
     #---------------------------------------------------------------------------------- 
     elif board[0][0] == 'X' and board[1][1] == 'X' and board[2][2] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[2][0] == 'X' and board[1][1] == 'X' and board[0][2] == 'X':
         print('X wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     #---------------------------------------------------------------------------------- 
 
@@ -110,11 +110,11 @@ def check():
     #---------------------------------------------------------------------------------- 
     elif board[0][0] == 'Y' and board[1][1] == 'Y' and board[2][2] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[2][0] == 'Y' and board[1][1] == 'Y' and board[0][2] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     #---------------------------------------------------------------------------------- 
 
@@ -122,15 +122,15 @@ def check():
     #----------------------------------------------------------------------------------
     elif board[0][0] == 'Y' and board[0][1] == 'Y' and board[0][2] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[1][0] == 'Y' and board[1][1] == 'Y' and board[1][2] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[2][0] == 'Y' and board[2][1] == 'Y' and board[2][2] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     #----------------------------------------------------------------------------------
 
@@ -138,15 +138,15 @@ def check():
     #----------------------------------------------------------------------------------
     elif board[0][0] == 'Y' and board[1][0] == 'Y' and board[2][0] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[0][1] == 'Y' and board[1][1] == 'Y' and board[2][1] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     elif board[0][2] == 'Y' and board[1][2] == 'Y' and board[2][2] == 'Y':
         print('Y wins')
-        printBoard()
+        printBoard(board)
         sys.exit()
     #----------------------------------------------------------------------------------    
 
@@ -159,7 +159,7 @@ def game():
     print("Computer's Turn!")
     compTurn()
     check()
-    printBoard()
+    printBoard(board)
     print()
     game()
 
@@ -169,8 +169,7 @@ if __name__ == "__main__":
     ex = [['1', '2', '3'],
     ['4', '5', '6'],
     ['7','8','9']]
-    for row in ex:
-        print(row)
+    printBoard(ex)
     print()
-    printBoard()
+    printBoard(board)
     game()
