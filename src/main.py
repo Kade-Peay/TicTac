@@ -11,20 +11,46 @@ def printBoard():
     for row in board:
         print(row)
 
-
+# Make this a choice between 1 and 9
 def playerTurn():
-    print("Numbers must be between 0 and 2")
-    x = input("Enter 'X' Coordinate: ")
-    y = input("Enter 'Y' Coodrinate: ")
+    print("Choose Number between 1 and 9")
+    choice = input("Enter number: ")
 
-    if int(x) > 2 or int(y) > 2:
-        print("Invalid, try again")
-        playerTurn()
-    elif board[int(x)][int(y)] == 'y':
+    if choice == '1':
+        x = 0
+        y = 0
+    elif choice == '2':
+        x = 0
+        y = 1
+    elif choice == '3':
+        x = 0
+        y = 2
+    elif choice == '4':
+        x = 1
+        y = 0
+    elif choice == '5':
+        x = 1
+        y = 1
+    elif choice == '6':
+        x = 1
+        y = 2
+    elif choice == '7':
+        x = 2
+        y = 0
+    elif choice == '8':
+        x = 2
+        y = 1
+    elif choice == '9':
+        x = 2
+        y = 2
+    else:
+        print('Invalid input')
+
+    if board[x][y] != '-':
         print("That spot is taken")
         playerTurn()
     else:
-        board[int(x)][int(y)] = 'X'
+        board[x][y] = 'X'
 
 def compTurn():
     x = random.randint(0,2)
@@ -126,7 +152,6 @@ def check():
 
 # I am going to use this to loop over the game
 def game():
-    printBoard()
     print()
     print("Your Turn!")
     playerTurn()
@@ -141,4 +166,11 @@ def game():
 
 if __name__ == "__main__":
     board = boardinit()
+    ex = [['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7','8','9']]
+    for row in ex:
+        print(row)
+    print()
+    printBoard()
     game()
