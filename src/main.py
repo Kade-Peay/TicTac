@@ -2,9 +2,9 @@
 import random, sys
 
 def boardinit():
-    board = [['-', '-', '-'],
-    ['-', '-', '-'],
-    ['-', '-', '-']]
+    board = [['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7', '8', '9']]
     return board
 
 def printBoard(arr):
@@ -46,7 +46,7 @@ def playerTurn():
     else:
         print('Invalid input')
 
-    if board[x][y] != '-':
+    if board[x][y] == 'O' or board[x][y] == 'X':
         print("That spot is taken")
         playerTurn()
     else:
@@ -57,7 +57,7 @@ def compTurn():
     y = random.randint(0, 2)
 
     if board[int(x)][int(y)] != 'X':
-        board[int(x)][int(y)] = 'Y' 
+        board[int(x)][int(y)] = 'O' 
     else: compTurn()
 
 def check():
@@ -166,10 +166,6 @@ def game():
 
 if __name__ == "__main__":
     board = boardinit()
-    ex = [['1', '2', '3'],
-    ['4', '5', '6'],
-    ['7','8','9']]
-    printBoard(ex)
     print()
     printBoard(board)
     game()
